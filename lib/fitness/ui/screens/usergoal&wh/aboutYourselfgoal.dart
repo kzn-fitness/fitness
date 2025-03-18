@@ -1,4 +1,6 @@
+import 'package:fitness_app/fitness/bloc/user_input/user_input_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../ui/widgets/yourselfappbartitle.dart';
 import '../../../utils/routes.dart';
 import '../../../utils/utlis.dart';
@@ -54,9 +56,6 @@ class _AboutYourselfGoalState extends State<AboutYourselfGoal>
     _goalcontroller.dispose();
   }
 
-  List goalid = [
-    "1",
-  ];
   Widget _buildappbar() {
     return Align(
       alignment: Alignment.topCenter,
@@ -80,62 +79,62 @@ class _AboutYourselfGoalState extends State<AboutYourselfGoal>
           right: MediaQuery.of(context).size.width * 0.08,
         ),
         height: MediaQuery.of(context).size.height * 0.70,
-        child: ListView.builder(
-          physics: BouncingScrollPhysics(),
-          //  padding: EdgeInsets.only(top: 50),
-          itemCount: fitnessUiUtils.goalList.length,
-          itemBuilder: (BuildContext context, int index) {
-            return GestureDetector(
-              onTap: () {
-                if (goalid.contains(fitnessUiUtils.goalList[index].id)) {
-                  goalid.removeWhere((element) =>
-                      element == fitnessUiUtils.goalList[index].id);
-                  print("value cointain");
-                  setState(() {});
-                } else {
-                  goalid.add(fitnessUiUtils.goalList[index].id);
-                  setState(() {});
-                }
-              },
-              child: Container(
-                margin: EdgeInsets.only(top: 10),
-                width: MediaQuery.of(context).size.width * 0.85,
-                height: MediaQuery.of(context).size.height * 0.09,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.white10,
-                  border: goalid.contains(fitnessUiUtils.goalList[index].id)
-                      ? Border.all(
-                          color: Theme.of(context).primaryColor,
-                          width: 2,
-                        )
-                      : Border.all(width: 0, color: Colors.transparent),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.04),
-                  child: Row(
-                    children: [
-                      Text(
-                        fitnessUiUtils.goalList[index].goalname,
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Theme.of(context).colorScheme.background),
-                      ),
-                      Spacer(),
-                      !goalid.contains(fitnessUiUtils.goalList[index].id)
-                          ? Icon(
-                              Icons.circle_outlined,
+        child: BlocBuilder<UserInputBloc, UserInputState>(
+          builder: (context, state) {
+            return ListView.builder(
+              physics: BouncingScrollPhysics(),
+              //  padding: EdgeInsets.only(top: 50),
+              itemCount: fitnessUiUtils.goalList.length,
+              itemBuilder: (BuildContext context, int index) {
+                final goal = fitnessUiUtils.goalList[index];
+                return GestureDetector(
+                  onTap: () {
+                    context
+                        .read<UserInputBloc>()
+                        .add(ChangeGoal(goal: goal.id));
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 10),
+                    width: MediaQuery.of(context).size.width * 0.85,
+                    height: MediaQuery.of(context).size.height * 0.09,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white10,
+                      border: state.goal.contains(goal.id)
+                          ? Border.all(
                               color: Theme.of(context).primaryColor,
+                              width: 2,
                             )
-                          : Icon(
-                              Icons.check_circle,
-                              color: Theme.of(context).primaryColor,
-                            ),
-                    ],
+                          : Border.all(width: 0, color: Colors.transparent),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width * 0.04),
+                      child: Row(
+                        children: [
+                          Text(
+                            fitnessUiUtils.goalList[index].goalname,
+                            style: TextStyle(
+                                fontSize: 18,
+                                color:
+                                    Theme.of(context).colorScheme.background),
+                          ),
+                          Spacer(),
+                          !state.goal.contains(goal.id)
+                              ? Icon(
+                                  Icons.circle_outlined,
+                                  color: Theme.of(context).primaryColor,
+                                )
+                              : Icon(
+                                  Icons.check_circle,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                        ],
+                      ),
+                    ),
                   ),
-                ),
-              ),
+                );
+              },
             );
           },
         ),

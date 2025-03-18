@@ -1,0 +1,123 @@
+[
+    {
+      "title": "Full-Body HIIT",
+      "duration": "40 min",
+      "description": "High-intensity interval training for full-body conditioning.",
+      "level": "Intermediate",
+      "exercises": [
+        { "title": "Jump Rope", "duration": "5 min", "description": "Warm-up with fast-paced jump rope." },
+        { "title": "Burpees", "duration": "4x12", "description": "Explosive movement, full-body engagement." },
+        { "title": "Push-Ups", "duration": "4x15", "description": "Keep core tight and maintain form." },
+        { "title": "Mountain Climbers", "duration": "3x40 sec", "description": "Fast pace, knees to chest." }
+      ]
+    },
+    {
+      "title": "Cardio Endurance",
+      "duration": "45 min",
+      "description": "Improve cardiovascular endurance with this routine.",
+      "level": "Intermediate",
+      "exercises": [
+        { "title": "Jogging", "duration": "10 min", "description": "Warm-up at moderate pace." },
+        { "title": "Sprint Intervals", "duration": "6x30 sec", "description": "Sprint at max effort, walk to recover." },
+        { "title": "Jump Squats", "duration": "3x12", "description": "Explosive jumps, land softly." },
+        { "title": "High Knees", "duration": "3x45 sec", "description": "Drive knees up quickly." }
+      ]
+    },
+    {
+      "title": "Core Strength & Stability",
+      "duration": "35 min",
+      "description": "A focused routine to build a strong core.",
+      "level": "Intermediate",
+      "exercises": [
+        { "title": "Russian Twists", "duration": "3x20", "description": "Engage obliques, use weights for challenge." },
+        { "title": "Hanging Leg Raises", "duration": "3x15", "description": "Lift legs slowly, control descent." },
+        { "title": "Plank to Shoulder Tap", "duration": "3x20 taps", "description": "Maintain core stability." },
+        { "title": "V-Ups", "duration": "3x12", "description": "Full-body core engagement." }
+      ]
+    },
+    {
+      "title": "Lower Body Power",
+      "duration": "40 min",
+      "description": "Develop strength and endurance in your legs.",
+      "level": "Intermediate",
+      "exercises": [
+        { "title": "Barbell Squats", "duration": "4x12", "description": "Maintain proper squat depth." },
+        { "title": "Walking Lunges", "duration": "3x12 each leg", "description": "Keep torso upright." },
+        { "title": "Box Jumps", "duration": "3x10", "description": "Explode up and land softly." },
+        { "title": "Calf Raises", "duration": "3x15", "description": "Hold at top for 1 sec." }
+      ]
+    },
+    {
+      "title": "Upper Body Strength",
+      "duration": "40 min",
+      "description": "Intermediate routine to build upper body strength.",
+      "level": "Intermediate",
+      "exercises": [
+        { "title": "Pull-Ups", "duration": "3x8", "description": "Use assistance if needed." },
+        { "title": "Dumbbell Bench Press", "duration": "3x12", "description": "Controlled movement." },
+        { "title": "Bicep Curls", "duration": "3x12", "description": "Keep elbows stable." },
+        { "title": "Tricep Dips", "duration": "3x10", "description": "Use parallel bars or a bench." }
+      ]
+    },
+    {
+      "title": "Total Body Circuit",
+      "duration": "45 min",
+      "description": "Circuit training for strength and endurance.",
+      "level": "Intermediate",
+      "exercises": [
+        { "title": "Jumping Lunges", "duration": "3x12 each leg", "description": "Explosive movement." },
+        { "title": "Push-Up to Row", "duration": "3x12", "description": "Use dumbbells for added challenge." },
+        { "title": "Deadlifts", "duration": "3x10", "description": "Engage hamstrings and glutes." },
+        { "title": "Hollow Body Hold", "duration": "30 sec", "description": "Core engagement, hold position." }
+      ]
+    },
+    {
+      "title": "Agility & Speed",
+      "duration": "30 min",
+      "description": "Drills to improve agility and speed.",
+      "level": "Intermediate",
+      "exercises": [
+        { "title": "Ladder Drills", "duration": "3x30 sec", "description": "Quick footwork drills." },
+        { "title": "Shuttle Runs", "duration": "3x40 sec", "description": "Sprint back and forth." },
+        { "title": "Lateral Jumps", "duration": "3x15", "description": "Jump side to side with control." },
+        { "title": "Tuck Jumps", "duration": "3x10", "description": "Explode up, tuck knees to chest." }
+      ]
+    },
+    {
+      "title": "Dumbbell Strength Routine",
+      "duration": "45 min",
+      "description": "Full-body dumbbell workout for strength and endurance.",
+      "level": "Intermediate",
+      "exercises": [
+        { "title": "Dumbbell Squats", "duration": "3x12", "description": "Keep core engaged." },
+        { "title": "Dumbbell Rows", "duration": "3x12", "description": "Controlled back movement." },
+        { "title": "Dumbbell Shoulder Press", "duration": "3x10", "description": "Engage shoulders." },
+        { "title": "Dumbbell Deadlifts", "duration": "3x10", "description": "Slow, controlled motion." }
+      ]
+    },
+    {
+      "title": "Outdoor Running & Strength",
+      "duration": "45 min",
+      "description": "A hybrid of running and strength training.",
+      "level": "Intermediate",
+      "exercises": [
+        { "title": "Warm-Up Jog", "duration": "10 min", "description": "Moderate pace." },
+        { "title": "Hill Sprints", "duration": "5x30 sec", "description": "Max effort on incline." },
+        { "title": "Bodyweight Squats", "duration": "3x15", "description": "Controlled movement." },
+        { "title": "Push-Ups", "duration": "3x12", "description": "Maintain proper form." }
+      ]
+    },
+    {
+      "title": "Functional Strength & Mobility",
+      "duration": "40 min",
+      "description": "Enhance mobility and functional strength.",
+      "level": "Intermediate",
+      "exercises": [
+        { "title": "Kettlebell Swings", "duration": "3x15", "description": "Hinge at hips, engage glutes." },
+        { "title": "Turkish Get-Ups", "duration": "3x8", "description": "Controlled full-body movement." },
+        { "title": "Resistance Band Rows", "duration": "3x12", "description": "Focus on scapular retraction." },
+        { "title": "Mobility Stretching", "duration": "5 min", "description": "Cool down with stretches." }
+      ]
+    }
+  ]
+  

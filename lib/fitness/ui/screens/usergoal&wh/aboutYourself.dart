@@ -1,4 +1,7 @@
+import 'package:fitness_app/fitness/service/fitness_target_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../bloc/user_input/user_input_bloc.dart';
 import '../../../ui/widgets/yourselfappbartitle.dart';
 import '../../../utils/routes.dart';
 
@@ -38,7 +41,6 @@ class _AboutYourselfState extends State<AboutYourself>
     _controller.dispose();
   }
 
-  int currentindex = 0;
   Widget _buildtitle() {
     return SlideTransition(
       position: _buttonanimation,
@@ -52,74 +54,77 @@ class _AboutYourselfState extends State<AboutYourself>
   Widget selectgender({
     required String gendertype,
     required IconData gendericontype,
-    required int index,
+    required Gender gender,
   }) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          currentindex = index;
-        });
-      },
-      child: Container(
-        height: MediaQuery.of(context).size.height * 0.25,
-        alignment: Alignment.center,
-        //width: MediaQuery.of(context).size.width,
-        child: Stack(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.22,
-              width: MediaQuery.of(context).size.width * 0.45,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                border: Border.all(
-                  color:
-                      index == currentindex ? Colors.orangeAccent : Colors.grey,
-                ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: index == currentindex
-                          ? Colors.orange
-                          : Color(0xff181d24),
-                    ),
-                    child: Icon(
-                      gendericontype,
-                      color: Colors.white,
-                      size: 30,
+    return BlocBuilder<UserInputBloc, UserInputState>(
+      builder: (context, state) {
+        return GestureDetector(
+          onTap: () {
+            context.read<UserInputBloc>().add(ChangeGender(gender: gender));
+          },
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.25,
+            alignment: Alignment.center,
+            //width: MediaQuery.of(context).size.width,
+            child: Stack(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.22,
+                  width: MediaQuery.of(context).size.width * 0.45,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(
+                      color: state.gender == gender
+                          ? Colors.orangeAccent
+                          : Colors.grey,
                     ),
                   ),
-                  Text(
-                    gendertype,
-                    style: TextStyle(color: Colors.white, fontSize: 25),
-                  )
-                ],
-              ),
-            ),
-            index == currentindex
-                ? Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      height: 30,
-                      width: MediaQuery.of(context).size.width * 0.45,
-                      margin: EdgeInsets.only(bottom: 10),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.orange),
-                      child: Icon(
-                        Icons.check,
-                        color: Colors.white,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: state.gender == gender
+                              ? Colors.orange
+                              : Color(0xff181d24),
+                        ),
+                        child: Icon(
+                          gendericontype,
+                          color: Colors.white,
+                          size: 30,
+                        ),
                       ),
-                    ),
-                  )
-                : Container()
-          ],
-        ),
-      ),
+                      Text(
+                        gendertype,
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      )
+                    ],
+                  ),
+                ),
+                state.gender == gender
+                    ? Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                          height: 30,
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          margin: EdgeInsets.only(bottom: 10),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.orange),
+                          child: Icon(
+                            Icons.check,
+                            color: Colors.white,
+                          ),
+                        ),
+                      )
+                    : Container()
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -165,12 +170,12 @@ class _AboutYourselfState extends State<AboutYourself>
           selectgender(
             gendertype: "male",
             gendericontype: Icons.male,
-            index: 0,
+            gender: Gender.male,
           ),
           selectgender(
             gendertype: "female",
             gendericontype: Icons.female,
-            index: 1,
+            gender: Gender.female,
           ),
         ],
       ),

@@ -1,5 +1,8 @@
+import 'package:fitness_app/fitness/service/fitness_target_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../bloc/user_input/user_input_bloc.dart';
 import '../../../ui/widgets/yourselfappbartitle.dart';
 import '../../../utils/routes.dart';
 
@@ -18,7 +21,6 @@ class _AboutYourselfWeightState extends State<AboutYourselfWeight>
   late AnimationController _controller;
   late Animation<Offset> _buttonanimation;
   late Animation<Offset> _titleanimation;
-  int selectweightmethod = 0;
 
   @override
   void initState() {
@@ -42,7 +44,6 @@ class _AboutYourselfWeightState extends State<AboutYourselfWeight>
     super.dispose();
   }
 
-  int selectweight = 0;
   Widget _buildappbar() {
     return Align(
       alignment: Alignment.topCenter,
@@ -68,60 +69,64 @@ class _AboutYourselfWeightState extends State<AboutYourselfWeight>
                 color: Colors.grey.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectweightmethod = 0;
-                      });
-                    },
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                      width: MediaQuery.of(context).size.width * 0.2,
-                      decoration: BoxDecoration(
-                        color: selectweightmethod == 0
-                            ? Theme.of(context).primaryColor
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(15),
+              child: BlocBuilder<UserInputBloc, UserInputState>(
+                builder: (context, state) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          context
+                              .read<UserInputBloc>()
+                              .add(ChangeWeightUnit(weightUnit: WeightUnit.lb));
+                        },
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.04,
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          decoration: BoxDecoration(
+                            color: state.weightUnit == WeightUnit.lb
+                                ? Theme.of(context).primaryColor
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Center(
+                              child: Text(
+                            "lbs",
+                            style: TextStyle(
+                                color: state.weightUnit == WeightUnit.lb
+                                    ? Colors.white
+                                    : Theme.of(context).primaryColor),
+                          )),
+                        ),
                       ),
-                      child: Center(
-                          child: Text(
-                        "lbs",
-                        style: TextStyle(
-                            color: selectweightmethod == 0
-                                ? Colors.white
-                                : Theme.of(context).primaryColor),
-                      )),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectweightmethod = 1;
-                      });
-                    },
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                      width: MediaQuery.of(context).size.width * 0.2,
-                      decoration: BoxDecoration(
-                        color: selectweightmethod == 1
-                            ? Theme.of(context).primaryColor
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(15),
+                      GestureDetector(
+                        onTap: () {
+                          context
+                              .read<UserInputBloc>()
+                              .add(ChangeWeightUnit(weightUnit: WeightUnit.kg));
+                        },
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.04,
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          decoration: BoxDecoration(
+                            color: state.weightUnit == WeightUnit.kg
+                                ? Theme.of(context).primaryColor
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Center(
+                              child: Text(
+                            "kg",
+                            style: TextStyle(
+                                color: state.weightUnit == WeightUnit.kg
+                                    ? Colors.white
+                                    : Theme.of(context).primaryColor),
+                          )),
+                        ),
                       ),
-                      child: Center(
-                          child: Text(
-                        "kg",
-                        style: TextStyle(
-                            color: selectweightmethod == 1
-                                ? Colors.white
-                                : Theme.of(context).primaryColor),
-                      )),
-                    ),
-                  ),
-                ],
+                    ],
+                  );
+                },
               ),
             ),
             SizedBox(
@@ -141,7 +146,7 @@ class _AboutYourselfWeightState extends State<AboutYourselfWeight>
                           ),
                         )),
                 onSelectedItemChanged: (item) {
-                  print((item + 1).toString());
+                  context.read<UserInputBloc>().add(ChangeWeight(weight: item));
                 },
               ),
             ),

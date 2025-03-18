@@ -1,3 +1,4 @@
+import 'package:fitness_app/fitness/service/fitness_target_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../model/detailscreevideo.dart';
@@ -10,12 +11,12 @@ class fitnessUiUtils {
   }
 
   static List<usergoal> goalList = [
-    usergoal(id: "1", goalname: "Get Fitter"),
-    usergoal(id: "2", goalname: "Gain Weight"),
-    usergoal(id: "3", goalname: "Lose  Weight"),
-    usergoal(id: "4", goalname: "Building Muscles"),
-    usergoal(id: "5", goalname: "improving Endurance"),
-    usergoal(id: "6", goalname: "other"),
+    usergoal(id: Goal.getFitter, goalname: "Get Fitter"),
+    usergoal(id: Goal.gainWeight, goalname: "Gain Weight"),
+    usergoal(id: Goal.loseWeight, goalname: "Lose  Weight"),
+    usergoal(id: Goal.buildingMuscles, goalname: "Building Muscles"),
+    usergoal(id: Goal.improvingEndurance, goalname: "improving Endurance"),
+    usergoal(id: Goal.other, goalname: "other"),
   ];
   static List levelList = [
     "Beginner",
@@ -529,5 +530,22 @@ class fitnessUiUtils {
             ),*/
       ],
     );
+  }
+}
+
+String changeGoalEnumToString(Goal goal) {
+  switch (goal) {
+    case Goal.getFitter:
+      return "getFitter";
+    case Goal.gainWeight:
+      return "gainWeight";
+    case Goal.loseWeight:
+      return "loseWeight";
+    case Goal.buildingMuscles:
+      return "buildingMuscles";
+    case Goal.improvingEndurance:
+      return "improvingEndurance";
+    case Goal.other:
+      return "others";
   }
 }

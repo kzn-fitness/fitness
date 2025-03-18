@@ -1,4 +1,6 @@
+import 'package:fitness_app/fitness/bloc/user_input/user_input_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../ui/widgets/yourselfappbartitle.dart';
 import '../../../utils/routes.dart';
 import '../../../utils/utlis.dart';
@@ -128,6 +130,8 @@ class _AboutYourselfLevelState extends State<AboutYourselfLevel>
                     onTap: () {
                       selectedlevel = index;
                       setState(() {});
+                      context.read<UserInputBloc>().add(
+                          ChangeLevel(level: fitnessUiUtils.levelList[index]));
                     },
                     child: Container(
                       alignment: Alignment.center,

@@ -1,6 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../bloc/user/user_bloc.dart';
+import '../../../bloc/user_input/user_input_bloc.dart';
+import '../../../model/UserManager.dart';
+import '../../../service/fitness_target_service.dart';
 import '../../../ui/widgets/customeBackbutton.dart';
 import '../../../ui/widgets/customrRoundedButton.dart';
 import '../../../ui/widgets/yourselfappbartitle.dart';
@@ -63,11 +68,12 @@ class _SignInMethodScreenState extends State<SignInMethodScreen>
     );
   }
 
-  Widget signincontainer(String MethodName, String methodimage) {
+  Widget signincontainer(
+      String MethodName, String methodimage, void Function()? onTap) {
     return SlideTransition(
       position: _titleanimation,
       child: GestureDetector(
-        onTap: () {},
+        onTap: onTap,
         child: Center(
           child: Container(
             height: MediaQuery.of(context).size.height * 0.09,
@@ -124,9 +130,32 @@ class _SignInMethodScreenState extends State<SignInMethodScreen>
       alignment: Alignment.bottomRight,
       child: Column(
         children: [
-          signincontainer("Facebook", "fb.png"),
-          signincontainer("Google", "google.png"),
-          signincontainer("Apple", "apple.png")
+          signincontainer("Facebook", "fb.png", () {}),
+          signincontainer("Google", "google.png", () {
+            //get usermanager
+            final state = context.read<UserInputBloc>().state;
+            final targets = FitnessTargetService.calculateTargets(
+              state.goal,
+              state.age,
+              state.height + 0.0,
+              state.weight + 0.0,
+              state.gender,
+              state.heightUnit,
+              state.weightUnit,
+            );
+            final goalList =
+                state.goal.map((g) => changeGoalEnumToString(g)).toList();
+            final userManager = Usermanager(
+              stepTarget: targets.stepTarget,
+              caloriesBurnTarget: targets.caloriesBurnTarget,
+              sleepTarget: targets.sleepTarget,
+              goals: goalList,
+            );
+            context
+                .read<UserBloc>()
+                .add(SignInGoogle(usermanager: userManager));
+          }),
+          signincontainer("Apple", "apple.png", () {})
         ],
       ),
     );

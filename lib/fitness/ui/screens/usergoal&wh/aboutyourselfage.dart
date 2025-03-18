@@ -1,5 +1,7 @@
+import 'package:fitness_app/fitness/bloc/user_input/user_input_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../ui/widgets/yourselfappbartitle.dart';
 import '../../../utils/routes.dart';
 
@@ -78,7 +80,7 @@ class _AboutyourSelfageState extends State<AboutyourSelfage>
                         ),
                       )),
               onSelectedItemChanged: (item) {
-                print((item + 2).toString());
+                context.read<UserInputBloc>().add(ChangeAge(age: item));
               },
             ),
           )),

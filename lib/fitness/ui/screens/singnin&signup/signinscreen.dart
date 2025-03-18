@@ -1,4 +1,11 @@
+import 'dart:developer';
+
+import 'package:fitness_app/fitness/bloc/user/user_bloc.dart';
+import 'package:fitness_app/fitness/bloc/user_input/user_input_bloc.dart';
+import 'package:fitness_app/fitness/model/UserManager.dart';
+import 'package:fitness_app/fitness/service/fitness_target_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../ui/widgets/customeBackbutton.dart';
 import '../../../ui/widgets/customrRoundedButton.dart';
 import '../../../ui/widgets/yourselfappbartitle.dart';
@@ -190,11 +197,11 @@ class _SignInScreenState extends State<SignInScreen>
           ),
           Text(
             "or continue with",
-            style:
-                TextStyle(fontSize: 15, color: Theme.of(context).colorScheme.background
-                    //fontWeight: FontWeight.bold,
-                    //letterSpacing: 1,
-                    ),
+            style: TextStyle(
+                fontSize: 15, color: Theme.of(context).colorScheme.background
+                //fontWeight: FontWeight.bold,
+                //letterSpacing: 1,
+                ),
             textAlign: TextAlign.center,
           ),
           Expanded(
@@ -213,11 +220,11 @@ class _SignInScreenState extends State<SignInScreen>
   }
 
   Widget _roundedbuttonforsocialmedia(
-      {required String imagename, Function? ontap}) {
+      {required String imagename, void Function()? ontap}) {
     return SlideTransition(
       position: _buttonanimation,
       child: GestureDetector(
-        onTap: ontap as void Function()?,
+        onTap: ontap,
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           width: MediaQuery.of(context).size.width * 0.25,
@@ -245,7 +252,9 @@ class _SignInScreenState extends State<SignInScreen>
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         _roundedbuttonforsocialmedia(imagename: "fb.png"),
-        _roundedbuttonforsocialmedia(imagename: "google.png"),
+        _roundedbuttonforsocialmedia(
+          imagename: "google.png",
+        ),
         _roundedbuttonforsocialmedia(imagename: "apple.png"),
       ],
     );

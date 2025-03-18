@@ -1,0 +1,16 @@
+[
+    { "title": "Jump Rope", "duration": "5 min", "description": "Warm-up with light jump rope.","image":"https://i.pinimg.com/originals/d1/25/83/d12583741e0ab727dbbd7385e2ab600f.gif","workout_id":"L0MtVR4ljULf7I8l3pr6" },
+    { "title": "Bodyweight Squats", "duration": "3x12", "description": "Controlled squats with proper form.","image":"https://i.pinimg.com/originals/67/cc/0c/67cc0c0861dfbe546fb3ab9e9728f85f.gif","workout_id":"L0MtVR4ljULf7I8l3pr6" },
+    { "title": "Push-Ups", "duration": "3x10", "description": "Keep core engaged.","image":"https://i.pinimg.com/originals/3a/b6/64/3ab6642781d3c10572f82d7da680e457.gif","workout_id":"L0MtVR4ljULf7I8l3pr6" },
+    { "title": "Plank", "duration": "30 sec", "description": "Hold a strong core position.","image":"https://i.pinimg.com/originals/45/e8/a7/45e8a7ae0999d4942ff4c1cabf8b1f40.gif","workout_id":"L0MtVR4ljULf7I8l3pr6" },
+    
+    { "title": "Jumping Jacks", "duration": "3 min", "description": "Full-body warm-up.","image":"https://i.pinimg.com/originals/e5/22/b2/e522b2d0e0f62aaa637af69f4fe680d7.gif","workout_id":"2SWjVqInQw2LxTETzHWy" },
+    { "title": "High Knees", "duration": "3x30 sec", "description": "Raise knees to waist level.","image":"https://i.pinimg.com/originals/c1/9f/2c/c19f2c2bac0ca09f2381fb8281c8d1f0.gif","workout_id":"2SWjVqInQw2LxTETzHWy" },
+    { "title": "Mountain Climbers", "duration": "3x20 sec", "description": "Engage core and move quickly.","image":"https://i.pinimg.com/originals/18/27/be/1827be178c019b1dc6f8a8d8b4a7b0b8.gif","workout_id":"2SWjVqInQw2LxTETzHWy" },
+    { "title": "Step-Ups", "duration": "3x12", "description": "Use a low bench or step.","image":"https://i.pinimg.com/originals/71/fb/2e/71fb2e3c4ecd0795f153df8ba7d51e21.gif","workout_id":"2SWjVqInQw2LxTETzHWy" },
+
+    { "title": "Crunches", "duration": "3x15", "description": "Slow, controlled movement.","image":"https://i.pinimg.com/originals/30/04/1d/30041df56a924326c7194762a17f52a5.gif","workout_id":"p3ltoDCYuUeaNz890ke3" },
+    { "title": "Leg Raises", "duration": "3x12", "description": "Keep legs straight and core tight.","image":"https://i.pinimg.com/originals/c0/d3/c9/c0d3c948ede881f235ee6e6ea97e57b4.gif","workout_id":"p3ltoDCYuUeaNz890ke3" },
+    { "title": "Russian Twists", "duration": "3x20", "description": "Engage obliques and twist.","image":"https://i.pinimg.com/originals/17/3a/5f/173a5f10c2ed8b8c1d4b226a51a20951.gif","workout_id":"p3ltoDCYuUeaNz890ke3" },
+    { "title": "Plank", "duration": "40 sec", "description": "Maintain a neutral spine.","image":"https://i.pinimg.com/originals/b2/9b/f6/b29bf67f29a03823286eb6357f502e59.gif","workout_id":"p3ltoDCYuUeaNz890ke3" }
+]

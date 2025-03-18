@@ -1,7 +1,10 @@
 import 'dart:ui';
 
+import 'package:fitness_app/fitness/service/fitness_target_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../bloc/user_input/user_input_bloc.dart';
 import '../../../ui/widgets/yourselfappbartitle.dart';
 import '../../../utils/routes.dart';
 
@@ -17,8 +20,6 @@ class AboutyouselfHeight extends StatefulWidget {
 
 class _AboutyouselfHeightState extends State<AboutyouselfHeight>
     with SingleTickerProviderStateMixin {
-  int selectage = 0;
-  int selectweightmethod = 0;
   late AnimationController _controller;
   late Animation<Offset> _buttonanimation;
   late Animation<Offset> _titleanimation;
@@ -71,60 +72,64 @@ class _AboutyouselfHeightState extends State<AboutyouselfHeight>
                 color: Colors.grey.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectweightmethod = 0;
-                      });
-                    },
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                      width: MediaQuery.of(context).size.width * 0.2,
-                      decoration: BoxDecoration(
-                        color: selectweightmethod == 0
-                            ? Theme.of(context).primaryColor
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(15),
+              child: BlocBuilder<UserInputBloc, UserInputState>(
+                builder: (context, state) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          context
+                              .read<UserInputBloc>()
+                              .add(ChangeHeightUnit(heightUnit: HeightUnit.cm));
+                        },
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.04,
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          decoration: BoxDecoration(
+                            color: state.heightUnit == HeightUnit.cm
+                                ? Theme.of(context).primaryColor
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Center(
+                              child: Text(
+                            "cm",
+                            style: TextStyle(
+                                color: state.heightUnit == HeightUnit.cm
+                                    ? Colors.white
+                                    : Theme.of(context).primaryColor),
+                          )),
+                        ),
                       ),
-                      child: Center(
-                          child: Text(
-                        "cm",
-                        style: TextStyle(
-                            color: selectweightmethod == 0
-                                ? Colors.white
-                                : Theme.of(context).primaryColor),
-                      )),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectweightmethod = 1;
-                      });
-                    },
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.04,
-                      width: MediaQuery.of(context).size.width * 0.2,
-                      decoration: BoxDecoration(
-                        color: selectweightmethod == 1
-                            ? Theme.of(context).primaryColor
-                            : Colors.transparent,
-                        borderRadius: BorderRadius.circular(15),
+                      GestureDetector(
+                        onTap: () {
+                          context
+                              .read<UserInputBloc>()
+                              .add(ChangeHeightUnit(heightUnit: HeightUnit.ft));
+                        },
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.04,
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          decoration: BoxDecoration(
+                            color: state.heightUnit == HeightUnit.ft
+                                ? Theme.of(context).primaryColor
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Center(
+                              child: Text(
+                            "ft",
+                            style: TextStyle(
+                                color: state.heightUnit == HeightUnit.ft
+                                    ? Colors.white
+                                    : Theme.of(context).primaryColor),
+                          )),
+                        ),
                       ),
-                      child: Center(
-                          child: Text(
-                        "ft",
-                        style: TextStyle(
-                            color: selectweightmethod == 1
-                                ? Colors.white
-                                : Theme.of(context).primaryColor),
-                      )),
-                    ),
-                  ),
-                ],
+                    ],
+                  );
+                },
               ),
             ),
             SizedBox(
@@ -144,7 +149,7 @@ class _AboutyouselfHeightState extends State<AboutyouselfHeight>
                           ),
                         )),
                 onSelectedItemChanged: (item) {
-                  print((item + 2).toString());
+                  context.read<UserInputBloc>().add(ChangeHeight(height: item));
                 },
               ),
             ),

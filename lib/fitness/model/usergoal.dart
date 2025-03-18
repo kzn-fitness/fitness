@@ -1,5 +1,7 @@
+import 'package:fitness_app/fitness/service/fitness_target_service.dart';
+
 class usergoal {
-  final String id;
+  final Goal id;
   final String goalname;
   usergoal({
     required this.id,

@@ -1,0 +1,24 @@
+[
+    {
+      "title": "Full-Body Fitness",
+      "duration": "30 min",
+      "description": "A balanced mix of cardio and strength for overall fitness.",
+      "level": "Beginner",
+      "image":"https://i.pinimg.com/736x/c4/d1/64/c4d164264c0c1248137c719c7a65695b.jpg"
+    },
+    {
+      "title": "Cardio Blast",
+      "duration": "25 min",
+      "description": "Low-impact cardio to improve endurance.",
+      "level": "Beginner",
+      "image":"https://img.freepik.com/free-photo/happy-female-athlete-running-treadmill-gym_637285-8562.jpg"
+    },
+    {
+      "title": "Core Strength",
+      "duration": "30 min",
+      "description": "Strengthen your core muscles.",
+      "level": "Beginner",
+      "image":"https://media.istockphoto.com/id/1475282960/photo/woman-fitness-and-full-body-in-plank-for-core-workout-exercise-or-training-together-at-the.jpg?s=612x612&w=0&k=20&c=-nzdJCUHSdrW8RKecpcXsdRgIi418qn40UcRIC0HzZI="
+    }
+  ]
+  

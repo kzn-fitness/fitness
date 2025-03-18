@@ -1,0 +1,123 @@
+[
+    {
+      "title": "Elite Full-Body HIIT",
+      "duration": "50 min",
+      "description": "High-intensity circuit with minimal rest to maximize fat burn and endurance.",
+      "level": "Advanced",
+      "exercises": [
+        { "title": "Jump Rope", "duration": "5 min", "description": "Fast-paced warm-up." },
+        { "title": "Burpee Box Jumps", "duration": "4x15", "description": "Explosive power movement." },
+        { "title": "Clap Push-Ups", "duration": "4x12", "description": "Increase upper body power." },
+        { "title": "Kettlebell Swings", "duration": "4x20", "description": "Engage hips and core." }
+      ]
+    },
+    {
+      "title": "Extreme Cardio Challenge",
+      "duration": "60 min",
+      "description": "A mix of long and short bursts of high-intensity cardio.",
+      "level": "Advanced",
+      "exercises": [
+        { "title": "Sprint Intervals", "duration": "8x30 sec", "description": "Max effort sprints." },
+        { "title": "Jump Squats", "duration": "4x15", "description": "Explosive leg power." },
+        { "title": "Stair Climbs", "duration": "10 min", "description": "Continuous climbing for endurance." },
+        { "title": "Jump Rope Speed", "duration": "3x1 min", "description": "Go as fast as possible." }
+      ]
+    },
+    {
+      "title": "Advanced Core Destruction",
+      "duration": "45 min",
+      "description": "An extreme core workout to build endurance and strength.",
+      "level": "Advanced",
+      "exercises": [
+        { "title": "Hanging Windshield Wipers", "duration": "3x15", "description": "Controlled core rotation." },
+        { "title": "Dragon Flags", "duration": "3x10", "description": "Slow eccentric movement." },
+        { "title": "Ab Rollouts", "duration": "4x12", "description": "Engage deep core muscles." },
+        { "title": "Plank Variations", "duration": "3x1 min", "description": "Include side and dynamic planks." }
+      ]
+    },
+    {
+      "title": "Legs of Steel",
+      "duration": "50 min",
+      "description": "Intense lower-body routine to build explosive power and endurance.",
+      "level": "Advanced",
+      "exercises": [
+        { "title": "Barbell Back Squats", "duration": "4x10", "description": "Heavy lifts, proper depth." },
+        { "title": "Bulgarian Split Squats", "duration": "3x12 each leg", "description": "Balance and strength." },
+        { "title": "Jumping Lunges", "duration": "3x15 each leg", "description": "Explosive power." },
+        { "title": "Calf Raises", "duration": "3x20", "description": "Hold at peak for 1 sec." }
+      ]
+    },
+    {
+      "title": "Upper Body Strength & Power",
+      "duration": "50 min",
+      "description": "Build explosive upper body strength with this routine.",
+      "level": "Advanced",
+      "exercises": [
+        { "title": "Weighted Pull-Ups", "duration": "4x8", "description": "Add weight for challenge." },
+        { "title": "Barbell Bench Press", "duration": "4x10", "description": "Controlled heavy presses." },
+        { "title": "Ring Dips", "duration": "4x12", "description": "Keep core tight." },
+        { "title": "Barbell Rows", "duration": "4x10", "description": "Engage back muscles fully." }
+      ]
+    },
+    {
+      "title": "Functional Strength Circuit",
+      "duration": "50 min",
+      "description": "Build full-body strength with compound movements.",
+      "level": "Advanced",
+      "exercises": [
+        { "title": "Deadlifts", "duration": "4x8", "description": "Engage hamstrings and glutes." },
+        { "title": "Kettlebell Snatches", "duration": "3x10 each arm", "description": "Explosive full-body power." },
+        { "title": "Tire Flips", "duration": "3x10", "description": "Max effort flips." },
+        { "title": "Sled Pushes", "duration": "3x30 sec", "description": "Drive through legs." }
+      ]
+    },
+    {
+      "title": "Speed & Agility Training",
+      "duration": "45 min",
+      "description": "Designed to improve agility and speed for peak performance.",
+      "level": "Advanced",
+      "exercises": [
+        { "title": "Ladder Drills", "duration": "3x30 sec", "description": "Fast footwork patterns." },
+        { "title": "Lateral Hurdle Jumps", "duration": "3x15", "description": "Explosive lateral movements." },
+        { "title": "Shuttle Sprints", "duration": "3x40 sec", "description": "Change direction quickly." },
+        { "title": "Medicine Ball Slams", "duration": "3x15", "description": "Explosive full-body movement." }
+      ]
+    },
+    {
+      "title": "Dumbbell Beast Mode",
+      "duration": "50 min",
+      "description": "Intense full-body workout using only dumbbells.",
+      "level": "Advanced",
+      "exercises": [
+        { "title": "Dumbbell Thrusters", "duration": "4x12", "description": "Squat and press in one motion." },
+        { "title": "Dumbbell Deadlifts", "duration": "4x10", "description": "Engage posterior chain." },
+        { "title": "Dumbbell Snatches", "duration": "4x8 each arm", "description": "Explosive movement." },
+        { "title": "Dumbbell Farmers Walk", "duration": "3x40 sec", "description": "Grip and core endurance." }
+      ]
+    },
+    {
+      "title": "Outdoor Warrior Training",
+      "duration": "60 min",
+      "description": "Outdoor-based training for strength and endurance.",
+      "level": "Advanced",
+      "exercises": [
+        { "title": "Hill Sprints", "duration": "6x30 sec", "description": "Max effort incline sprints." },
+        { "title": "Pull-Ups", "duration": "4x12", "description": "Full range of motion." },
+        { "title": "Sandbag Squats", "duration": "3x12", "description": "Balance and strength." },
+        { "title": "Bear Crawls", "duration": "3x30 sec", "description": "Full-body coordination." }
+      ]
+    },
+    {
+      "title": "Explosive Athletic Performance",
+      "duration": "50 min",
+      "description": "Build elite athletic ability with explosive movements.",
+      "level": "Advanced",
+      "exercises": [
+        { "title": "Power Cleans", "duration": "4x6", "description": "Full-body explosive power." },
+        { "title": "Box Jumps", "duration": "4x12", "description": "Jump as high as possible." },
+        { "title": "Sled Drags", "duration": "3x30 sec", "description": "Max effort pulls." },
+        { "title": "Battle Ropes", "duration": "3x45 sec", "description": "High-intensity endurance work." }
+      ]
+    }
+  ]
+  

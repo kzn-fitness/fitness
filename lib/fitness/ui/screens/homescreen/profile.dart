@@ -1,6 +1,9 @@
+import 'package:fitness_app/fitness/utils/const.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../bloc/user/user_bloc.dart';
 import '../../../ui/widgets/customrRoundedButton.dart';
 import '../../../utils/routes.dart';
 
@@ -184,109 +187,116 @@ class _ProfilescreenState extends State<Profilescreen>
   }
 
   Widget _buildpersonaldetail() {
-    return SlideTransition(
-      position: _titleanimation,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            radius: 60,
-            backgroundColor: Theme.of(context).primaryColor,
-            backgroundImage: AssetImage(
-              "assets/images/fullApps/fitness/profileimages.jpg",
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
-          ),
-          const Text(
-            "Christina Ainsley",
-            style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
-          ),
-          const Text(
-            "Christina_Ainsley@yourdomin.com",
-            style: TextStyle(
-                fontSize: 15, fontWeight: FontWeight.w400, color: Colors.white),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context).pushNamed(Routes.primescreen);
-            },
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.13,
-              width: MediaQuery.of(context).size.width * 0.90,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                  color: Theme.of(context).primaryColor,
-                  gradient: LinearGradient(colors: [
-                    Theme.of(context).primaryColor.withOpacity(0.9),
-                    Theme.of(context).primaryColor,
-                  ])),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
+    return BlocBuilder<UserBloc, UserState>(
+      builder: (context, state) {
+        return SlideTransition(
+          position: _titleanimation,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 60,
+                backgroundColor: Theme.of(context).primaryColor,
+                backgroundImage:
+                    NetworkImage(state.usermanager?.image ?? defaultProfile),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Text(
+                state.usermanager?.fullName ?? "",
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
+              Text(
+                state.usermanager?.email ?? "",
+                style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.white),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushNamed(Routes.primescreen);
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.13,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: Theme.of(context).primaryColor,
+                      gradient: LinearGradient(colors: [
+                        Theme.of(context).primaryColor.withOpacity(0.9),
+                        Theme.of(context).primaryColor,
+                      ])),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.04,
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.orangeAccent),
-                          child: const Center(
-                            child: Text(
-                              "PRO",
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: MediaQuery.of(context).size.height * 0.04,
+                              width: MediaQuery.of(context).size.width * 0.15,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.orangeAccent),
+                              child: const Center(
+                                child: Text(
+                                  "PRO",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.05,
+                            ),
+                            const Text(
+                              "Upgrade to Premium",
                               style: TextStyle(color: Colors.white),
                             ),
-                          ),
+                            const Spacer(),
+                            Container(
+                              padding: const EdgeInsets.all(5),
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle, color: Colors.white),
+                              child: const Icon(
+                                Icons.arrow_forward_ios,
+                                size: 12,
+                              ),
+                            )
+                          ],
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.05,
+                          height: MediaQuery.of(context).size.height * 0.01,
                         ),
                         const Text(
-                          "Upgrade to Premium",
-                          style: TextStyle(color: Colors.white),
+                          "Enjoy Workout Access WIthout ads restriction",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w300),
                         ),
-                        const Spacer(),
-                        Container(
-                          padding: const EdgeInsets.all(5),
-                          decoration: const BoxDecoration(
-                              shape: BoxShape.circle, color: Colors.white),
-                          child: const Icon(
-                            Icons.arrow_forward_ios,
-                            size: 12,
-                          ),
-                        )
                       ],
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.01,
-                    ),
-                    const Text(
-                      "Enjoy Workout Access WIthout ads restriction",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w300),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-          )
-        ],
-      ),
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 

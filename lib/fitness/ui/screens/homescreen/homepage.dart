@@ -1,3 +1,4 @@
+import 'package:fitness_app/fitness/service/firestore_service.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import '../../../model/workout.dart';
@@ -53,10 +54,15 @@ class _FitnessHomePageState extends State<FitnessHomePage>
       position: _titleanimation,
       child: Row(
         children: [
-          Image.asset(
-            "assets/images/fullApps/fitness/smalllogo.png",
-            height: 40,
-            width: 40,
+          InkWell(
+            onTap: () {
+              //storeFitterBeginner();
+            },
+            child: Image.asset(
+              "assets/images/fullApps/fitness/smalllogo.png",
+              height: 40,
+              width: 40,
+            ),
           ),
           SizedBox(
             width: 15,
